@@ -56,22 +56,22 @@ public class step_UserProfile {
     }
 
 
-    //    @Then("The Three tabs  KYC application and Profile info and OD request tab are present")
-//    public void the_two_tabs_kyc_and_profile_are_present() throws InterruptedException {
-//        String ProfileInfo= UP.ProfileInfo().getText();
-//        System.out.println(ProfileInfo);
-//        Thread.sleep(2000);
-//        String KYC= UP.Kyc().getText();
-//        System.out.println(KYC);
-//        Thread.sleep(2000);
-//        String OD_Request= UP.OD_Request().getText();
-//        System.out.println(OD_Request);
-//        Thread.sleep(2000);
-//        driver.quit();
-//
-//
-//
-//    }
+        @Then("The Three tabs  KYC application and Profile info and OD request tab are present")
+    public void the_two_tabs_kyc_and_profile_are_present() throws InterruptedException {
+        String ProfileInfo= UP.ProfileInfo().getText();
+        System.out.println(ProfileInfo);
+        Thread.sleep(2000);
+        String KYC= UP.Kyc().getText();
+        System.out.println(KYC);
+        Thread.sleep(2000);
+        String OD_Request= UP.OD_Request().getText();
+        System.out.println(OD_Request);
+        Thread.sleep(2000);
+        driver.quit();
+
+
+
+    }
 //    @Then("The user will be able to see the details")
 //    public void theUserWillBeAbleToSeeTheDetails() throws InterruptedException {
 //        JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -103,20 +103,20 @@ public class step_UserProfile {
 //        driver.quit();
 //
 //    }
-    @Then("The user click in CURRENT PASSWORD,new password,confirm password input fields")
-    public void theUserClickInCURRENTPASSWORDNewPasswordConfirmPasswordInputFields() throws InterruptedException {
-        UP.EnterCurrentPassword("");
-        Thread.sleep(1000);
-        UP.EnterNewPassword("");
-        Thread.sleep(1000);
-        UP.EnterconfirmNewPassword("");
-        Thread.sleep(4000);
-    }
-
-    @And("user should get input required validation")
-    public void userShouldGetInputRequiredValidation() {
-        UP.ErrorRequiredField();
-    }
+//    @Then("The user click in CURRENT PASSWORD,new password,confirm password input fields")
+//    public void theUserClickInCURRENTPASSWORDNewPasswordConfirmPasswordInputFields() throws InterruptedException {
+//        UP.EnterCurrentPassword("");
+//        Thread.sleep(1000);
+//        UP.EnterNewPassword("");
+//        Thread.sleep(1000);
+//        UP.EnterconfirmNewPassword("");
+//        Thread.sleep(4000);
+//    }
+//
+//    @And("user should get input required validation")
+//    public void userShouldGetInputRequiredValidation() {
+//        UP.ErrorRequiredField();
+//    }
 
 
 }
