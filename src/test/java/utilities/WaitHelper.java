@@ -17,4 +17,8 @@ public class WaitHelper {
         wait.until(ExpectedConditions.visibilityOf(element));
 
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> f39def6bbd2518ac55f4a9cae3afe81c665cb463

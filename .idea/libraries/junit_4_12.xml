@@ -1,6 +1,8 @@
 <component name="libraryTable">
   <library name="junit-4.12">
-    <CLASSES />
+    <CLASSES>
+      <root url="jar:///Volumes/IntelliJ IDEA CE/IntelliJ IDEA CE.app/Contents/lib/junit-4.12.jar!/" />
+    </CLASSES>
     <JAVADOC />
     <SOURCES />
   </library>
