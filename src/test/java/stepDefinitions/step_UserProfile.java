@@ -31,7 +31,7 @@ public class step_UserProfile {
         driver.manage().window().maximize();
         lp.Username("atif.kamal33@getnada.com");
         Thread.sleep(2000);
-        lp.setPass("Atif123@@");
+        lp.setPass("Atif123 @@");
         lp.clickLoginBtn().click();
         Thread.sleep(5000);
         String title = driver.getTitle();
@@ -94,14 +94,29 @@ public class step_UserProfile {
 //
 //    }
 
-    @Then("The user will see the Natinal Id or Passport no")
-    public void theUserWillSeeTheNatinalIdOrPassport() throws InterruptedException {
-
-        UP.Password_VisibiltyBtn();
-
-        Thread.sleep(5000);
-        driver.quit();
-
+    //    @Then("The user will see the Natinal Id or Passport no")
+//    public void theUserWillSeeTheNatinalIdOrPassport() throws InterruptedException {
+//
+//        UP.Password_VisibiltyBtn();
+//
+//        Thread.sleep(5000);
+//        driver.quit();
+//
+//    }
+    @Then("The user click in CURRENT PASSWORD,new password,confirm password input fields")
+    public void theUserClickInCURRENTPASSWORDNewPasswordConfirmPasswordInputFields() throws InterruptedException {
+        UP.EnterCurrentPassword("");
+        Thread.sleep(1000);
+        UP.EnterNewPassword("");
+        Thread.sleep(1000);
+        UP.EnterconfirmNewPassword("");
+        Thread.sleep(4000);
     }
+
+    @And("user should get input required validation")
+    public void userShouldGetInputRequiredValidation() {
+        UP.ErrorRequiredField();
+    }
+
 
 }

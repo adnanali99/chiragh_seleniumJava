@@ -32,16 +32,10 @@ Feature: As a user i should be able to validate Profile,Change password & Inbox
 #
     @Change_Password_Validations
 
-  Scenario Outline: check validation on Password Text input Field
+  Scenario: check validation on Password Text input Field
 
     Given The user is on the user dashboard
     When The user click on DashBoard Profile Link
-    Then The user enter CURRENT PASSWORD
-    And user should get CURRENT PASSWORD vaidation "<PasswordMessage>"
-
-    Examples:
-      | PasswordMessage                                                                                               | PasswordInput |
-      | Password is required!                                                                                         |               |
-      | Password must have atleast 8 characters including a uppercase, a lowercase, a number and a special character. |atif259       |
-
+    Then The user click in CURRENT PASSWORD,new password,confirm password input fields
+    And user should get input required validation
 

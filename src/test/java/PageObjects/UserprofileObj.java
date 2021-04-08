@@ -6,6 +6,8 @@ import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.List;
+
 public class UserprofileObj {
 
     //*********   WEBDRIVER INITIALIZATION  ************//
@@ -51,10 +53,33 @@ public class UserprofileObj {
     @FindBy(css = "input[name=\"currentPassword\"]")
     WebElement CurrentPasswordInputField;
 
-    //********* Current password input field Element   ************//
+    //********* New password input field Element   ************//
+
+    @FindBy(css = "input[name=\"userPassword\"]")
+    WebElement NewPasswordInputField;
+
+    //********* new confirm password input field Element   ************//
+
+    @FindBy(css = "input[name=\"userconfirmPassword\"]")
+    WebElement NewConfirmPasswordInputField;
+
+
+    //********* Current password Element   ************//
 
     @FindBy(xpath = "//p[contains(text(),'Current Password')]")
     WebElement CurrentPasswordElement;
+
+    //********* Error Element to get Text  ************//
+
+    @FindBy(xpath = "//div[2]/div/div[2]/div/div")
+    @CacheLookup
+    List<WebElement> Error_required_field;
+
+    //********* SnackBar Element   ************//
+
+    @FindBy(css = ".snack-text")
+    WebElement SnackBar;
+
 
     //*********   ACTION METHODS  ************//
 
@@ -103,5 +128,35 @@ public class UserprofileObj {
         CurrentPasswordElement.click();
 
     }
+
+    //*********   ACTION METHODS  CurrentPasswordElement ******//
+    public void EnterNewPassword(String NP) {
+        NewPasswordInputField.sendKeys(NP);
+
+    }
+
+    //*********   ACTION METHODS  CurrentPasswordElement ******//
+
+    public void EnterconfirmNewPassword(String CNP) {
+        NewConfirmPasswordInputField.sendKeys(CNP);
+    }
+
+    //*********   ACTION METHODS  CurrentPasswordElement ******//
+
+    public void ErrorRequiredField() {
+        int Size1 = Error_required_field.size();
+        System.out.println(Size1);
+        for (WebElement y : Error_required_field) {
+            System.out.println(y.getText());
+        }
+
+    }
+
+    //*********   ACTION METHODS  CurrentPasswordElement ******//
+    public void setSnackBar() {
+
+
+    }
+
 
 }
