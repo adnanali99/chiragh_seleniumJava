@@ -7,3 +7,9 @@
 /uiDesigner.xml
 /vcs.xml
 /workspace.xml
+.idea
+*.iws
+*.iml
+*.ipr
+*.class
+target/
