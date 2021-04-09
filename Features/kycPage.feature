@@ -14,7 +14,6 @@ Feature: KYC Form functional Tests
     And click on Submit button
     Then User can see "" as a success message
     And Close the browser
-    #test
 
     Examples:
       | userName               | password  | required | message                                         |
