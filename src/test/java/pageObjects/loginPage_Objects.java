@@ -1,19 +1,21 @@
-package pageObjects;
+package PageObjects;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import utilities.WaitHelper;
 
 public class loginPage_Objects {
 
     public WebDriver Idriver;
+    WaitHelper waithelper;
 
     public loginPage_Objects(WebDriver rdriver) {
         Idriver = rdriver;
         PageFactory.initElements(rdriver, this);
-
+        waithelper = new WaitHelper(Idriver);
     }
     //Email field
     @FindBy(xpath = "//*[@id='stuff']")
@@ -130,59 +132,74 @@ public class loginPage_Objects {
     //Action Methods for login page web elements
 
     public void Username(String username) {
+        waithelper.WaitForElement(userName_input,30);
         this.userName_input.sendKeys(username);
     }
 
     public void setPass(String password) {
+        waithelper.WaitForElement(password_input,30);
         this.password_input.sendKeys(password);
     }
 
     public WebElement clickLoginBtn() {
+        waithelper.WaitForElement(loginBtn,30);
         return this.loginBtn;
     }
 
     public WebElement checkError() {
-
+        waithelper.WaitForElement(invalidEmailPassMsg,30);
         return this.invalidEmailPassMsg;
     }
 
     public WebElement invalidEmailCheck() {
+        waithelper.WaitForElement(invalidEmail,30);
         return this.invalidEmail;
 
     }
 
     public WebElement checkEmailLabel() {
+        waithelper.WaitForElement(emailLabel,30);
         return this.emailLabel;
     }
 
     public WebElement checkPassLabel() {
+        waithelper.WaitForElement(passlabel,30);
         return this.passlabel;
     }
 
     public WebElement checkLoginPageTitle() {
-        return this.loginPageTitle;
+        waithelper.WaitForElement(loginPageTitle,30);
+        return loginPageTitle;
     }
 
     public WebElement checkDisclaimerText() {
+        waithelper.WaitForElement(disclaimerText,30);
         return this.disclaimerText;
     }
 
     public WebElement checkRegisterText() {
+        waithelper.WaitForElement(registerText,30);
         return this.registerText;
     }
 
     public WebElement checkForgotPassText() {
+        waithelper.WaitForElement(forgotPassText,30);
         return this.forgotPassText;
     }
 
     public void clickProfileIcon() {
+
+        waithelper.WaitForElement(profilIcon,30);
         this.profilIcon.click();
     }
 
     public WebElement clickLogout() {
+        waithelper.WaitForElement(logOut,30);
         return this.logOut;
     }
     public void clickOnRegister() {
-         this.registerLink.click();
+
+        waithelper.WaitForElement(registerLink,30);
+        this.registerLink.click();
     }
 }

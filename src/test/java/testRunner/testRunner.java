@@ -6,14 +6,20 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 
-@CucumberOptions(features = ".//Features/ Registration.feature",
+//@CucumberOptions(features = ".//Features/ Registration.feature",
+//        glue="stepDefinitions",
+//        dryRun = false,
+//        monochrome = true,
+//        plugin = {"pretty", "html:test-report.html"},
+//        tags = "@EmailValidations"
+//)
+@CucumberOptions(features = ".//Features",
         glue="stepDefinitions",
         dryRun = false,
         monochrome = true,
         plugin = {"pretty", "html:test-report.html"},
-        tags = "@EmailValidations"
+        tags = "@LoginValidation1"
 )
-
 public class testRunner {
 
 }

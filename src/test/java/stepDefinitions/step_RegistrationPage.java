@@ -1,20 +1,24 @@
 package stepDefinitions;
 
-import io.cucumber.java.en.*;
-import org.junit.Assert;
-import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeDriver;
 import PageObjects.RegistrationObj;
-import org.openqa.selenium.support.pagefactory.ElementLocator;
-import org.openqa.selenium.support.ui.Wait;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import com.github.javafaker.Faker;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+import org.junit.Assert;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import utilities.WaitHelper;
 
 public class step_RegistrationPage {
     WebDriver driver;
     RegistrationObj RP;
     WaitHelper WP;
+    Faker faker = new Faker();
 
+    String fname = faker.name().firstName();
+    String lname = faker.name().lastName();
                 //******  FirstName&LastnameValidations start from here ****//
 
 //    @Given("I am on the RegistrationPage.")
@@ -217,8 +221,8 @@ public class step_RegistrationPage {
 
     @Given("I am on the RegistrationSecondPage.")
     public void iAmOnTheRegistrationSecondPage() throws InterruptedException {
-
-        System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "//Drivers/chromedriver");
+       // System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
         driver = new ChromeDriver();
 
         RP = new RegistrationObj(driver);
@@ -231,7 +235,7 @@ public class step_RegistrationPage {
         Thread.sleep(1000);
         RP.EnterUserLastName("Kamal");
         Thread.sleep(1000);
-        RP.enterUserEmail("Atif23112@gmail.com");
+        RP.enterUserEmail("Atif231.12@gmail.com");
         Thread.sleep(1000);
         RP.setUserPassword("Atif@100259");
         Thread.sleep(1000);

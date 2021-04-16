@@ -1,22 +1,68 @@
 package stepDefinitions;
 
+import PageObjects.forgotPassword;
+import PageObjects.kycPage_Objects;
+import PageObjects.loginPage_Objects;
+import com.github.javafaker.Faker;
+import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 import org.junit.Assert;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.chrome.ChromeDriver;
-import pageObjects.kycPage_Objects;
-import pageObjects.loginPage_Objects;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Properties;
 
 public class steps_loginPage extends BaseClass {
+    Faker faker = new Faker();
+
+    String incorporationPlace = faker.address().city();
+    String companyAddress = faker.address().fullAddress();
+    String bOwnerName = faker.name().fullName().replaceAll("[^A-Za-z]", "");
+    String companyName = faker.company().name();
+
+    @Before
+    public void setup() throws IOException {
+        //Reading properties class
+        configProp=new Properties();
+        FileInputStream configPropFile = new FileInputStream("config.properties");
+        configProp.load(configPropFile); //Loading file into file input stream
+
+
+        String bName = configProp.getProperty("browser");
+
+        logger= Logger.getLogger("ChiraghCucumber"); //Added Logger
+        PropertyConfigurator.configure("log4j.properties");
+
+        if(bName.equals("chrome")){
+            System.setProperty("webdriver.chrome.driver", configProp.getProperty("chromepath"));
+            driver = new ChromeDriver();
+        }
+        else if(bName.equals("firefox")){
+            System.setProperty("webdriver.gecko.driver", configProp.getProperty("firefoxPath"));
+            driver = new FirefoxDriver();
+        }else if(bName.equals("ie")){
+            System.setProperty("webdriver.gecko.driver", configProp.getProperty("iePath"));
+            driver = new FirefoxDriver();
+        }
+
+
+        logger.info("********************* Launching Browser *********************");
+    }
 
     @Given("User is on the login page")
     public void user_is_on_the_login_page() throws InterruptedException {
         // Write code here that turns the phrase above into concrete actions
-        System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "//Drivers/chromedriver");
-        driver = new ChromeDriver();
         lp = new loginPage_Objects(driver);
+
+        logger.info("********************* Opening URL *********************");
         driver.get("https://test.chiragh.com/login");
         Thread.sleep(3000);
 //        String title = driver.getTitle();
@@ -52,6 +98,8 @@ public class steps_loginPage extends BaseClass {
 
     @When("User is providing an email {string} and password {string}")
     public void user_is_providing_a_valid_email_and_password(String email, String password) throws InterruptedException {
+        driver.manage().window().maximize();
+        logger.info("********************* Providing username and password *********************");
         lp.Username(email);
         Thread.sleep(2000);
         lp.setPass(password);
@@ -161,21 +209,83 @@ public class steps_loginPage extends BaseClass {
         Thread.sleep(1000);
         String randomName = randomString();
         String randomNumber = randomNumers();
+    //if(kycObj.iFrameVisible().isDisplayed())
 
-        Thread.sleep(2000);
+      //  kycObj.removeIframe();
+
+        //Thread.sleep(2000);
         kycObj.setSetCompanyName(randomName);
-        Thread.sleep(3000);
+        //Thread.sleep(2000);
 
         kycObj.setTradeLno(randomNumber);
 
+        //Thread.sleep(2000);
+        kycObj.setClickOnDate();
+
+        //Thread.sleep(2000);
+        kycObj.clickOnPrevMonth();
+
+        //Thread.sleep(2000);
+        kycObj.setClickSelectedDate();
+
+        //Thread.sleep(1000);
+        kycObj.setIncorpPlace(incorporationPlace);
+
+        //Thread.sleep(1000);
+        kycObj.setCompanyName(companyAddress);
+
+        //Thread.sleep(1000);
+        kycObj.setBeneOwnerName(bOwnerName);
+
+        //Thread.sleep(2000);
+        kycObj.ClickNationality();
+
+        //Thread.sleep(2000);
+        kycObj.setNationality("Pakistani");
+
+        // Thread.sleep(2000);
+        kycObj.fileUpload(0);
+
+        //Thread.sleep(2000);
+        kycObj.fileUpload(1);
+
+        // Thread.sleep(2000);
+        // kycObj.fileUpload(2);
+
+        //  Thread.sleep(2000);
+        kycObj.fileUpload(3);
         Thread.sleep(3000);
-        driver.quit();
+        //Are you US citizen
+        kycObj.clickUsDropDown();
+        kycObj.SetUsDropDown("Yes");
+        kycObj.clickYesNo();
+        Thread.sleep(4000);
+        kycObj.fileUpload(5);
+        kycObj.fileUpload(6);
+        Thread.sleep(2000);
+        //Do you remit money from sanctioned countries.
+        kycObj.clickRemitDropDown();
+        kycObj.SetRemitDropDown("Yes");
+        kycObj.clickYesNoRemit();
+
+
+
+        //Thread.sleep(2000);
+
+        //  kycObj.setStatusDD(0, 0,"Yes");
+        //   kycObj.setStatusDD(1, 1,"Yes");
+
+//        Thread.sleep(4000);
+//        kycObj.setStatusDD(1, "No");
+
+        Thread.sleep(5000);
+
 
     }
 
     @Then("click on Submit button")
     public void click_on_submit_button() {
-
+kycObj.clickSubmitBtn();
     }
 
     @Then("User can see {string} as a success message")
@@ -184,8 +294,115 @@ public class steps_loginPage extends BaseClass {
     }
 
     @Then("Close the browser")
-    public void close_the_browser() {
+    public void close_the_browser() throws InterruptedException {
+        Thread.sleep(10000);
+        driver.quit();
+    }
+
+    @Then("User can see {string},{string}, {string}, {string},{string},{string}, {string}, {string}, {string}, {string}, {string}, {string} and {string},")
+    public void user_can_see_and(String string, String string2, String string3, String string4, String string5, String string6, String string7, String string8, String string9, String string10, String string11, String string12, String string13) {
+        kycObj.getErrorMsg(string, string2, string3, string4, string5, string6, string7, string8, string9, string10, string11, string12, string13);
+    }
+
+    @Then("User enters Company Name to make company related fields enable")
+    public void user_enters_company_name_to_make_company_related_fields_enable() {
+        kycObj.setSetCompanyName(companyName);
 
     }
 
+    //============Step Definitions for Forgot Password Feature file=====================
+
+    @When("clicks on the Forgot Password link")
+    public void clicks_on_the_link() throws InterruptedException {
+        fPass = new forgotPassword(driver);
+
+        fPass.clickfPassLink();
+        Thread.sleep(3000);
+    }
+
+    @Then("verify that user is redirected to {string} Page")
+    public void verify_that_user_is_redirected_to_page(String string) {
+
+    }
+
+    @Then("when user enters an {string}")
+    public void when_user_enters_an(String email) throws InterruptedException {
+        fPass.setFpassEmail(email);
+        Thread.sleep(3000);
+    }
+
+    @Then("clicks on Submit button")
+    public void clicks_on_submit_button() throws InterruptedException {
+        fPass.clickfPassSubmitBtn();
+        Thread.sleep(10000);
+    }
+
+    @Then("user opens the email and clicks on the reset password link")
+    public void user_opens_the_email_and_clicks_on_the_reset_password_link() throws Exception {
+
+        ((JavascriptExecutor) driver).executeScript("window.open()");
+        ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+        driver.switchTo().window(tabs.get(1));
+        driver.get("https://test.chiragh.com/resetPassword/515fd0e96707b30af757cc2dfde7b0af");
+        Thread.sleep(5000);
+
+        //        EmailUtils emailUtils = new EmailUtils();
+//        Properties prop = new Properties();
+//        prop.load(new FileInputStream("/Users/adnan/Desktop/Projects/SeleniumJava/config/conf.properties"));
+//
+//        Store connection =emailUtils.connectToGmail(prop);
+//        // List emails= emailUtils.getMessageBySubjectLine(connection,"Inbox","Forgot Your Chiragh Password?");
+//        //   List<ArrayList> emails= new ArrayList<>() ;
+//        //int  size= emailUtils.getMessageBySubjectLine(connection,"Inbox","Forgot Your Chiragh Password?").size();
+//        //   List<String> msgs= emailUtils.getMessageContent(connection,"Inbox");
+//        List<String> emails= emailUtils.getMessageByFromEmail(connection,"Inbox", "support@chiragh.com","Forgot Your Chiragh Password?");
+//
+//        //   List<String> emails = emailUtils.getMessageBySubjectLine(connection,"Inbox", "Forgot Your Chiragh Password?");
+//        //  String link = emailUtils.getUrlsFromMessage(email, "Click here to view the reason").get(0);
+//        //  emailUtils.getUnreadMessages(connection,"Inbox");
+//        // List<String> emailList;
+//        //System.out.println(emailUtils.getMessageBySubjectLine(connection,"Inbox","Forgot Your Chiragh Password?").get(0));
+//        //System.out.println(emailUtils.getMessageBySubjectLine(connection,"Inbox","Forgot Your Chiragh Password?").get(0));
+//        //  emailList = emailUtils.getMessageByFromEmail(connection, "Inbox", "support@chiragh.com", "Forgot Your Chiragh Password?");
+//        if(emails.size()<1) {
+//            throw new Exception("No new email received");
+//        }
+//        else{
+//            String regex = "(?<=href\\=\").*(?=\"\\>)";
+//            // String[] arrLinks = email.get(0).split(regex);
+//            //  String link = arrLinks[1];
+//            //  System.out.println("I am here"+link);
+//
+//
+//
+//        }
+    }
+
+    @Then("verify that user is reset password screen")
+    public void verify_that_user_is_reset_password_screen() throws InterruptedException {
+        String text = fPass.restPasswordTitle().getText();
+        Assert.assertEquals("Reset Password?",text);
+    }
+
+    @Then("enters {string} and {string}")
+    public void enters_and(String newPass, String cNewPass) throws InterruptedException {
+
+        fPass.setNewPass(newPass);
+        fPass.setConfirmPass(cNewPass);
+        Thread.sleep(2000);
+    }
+
+    @Then("clicks on Reset Password button")
+    public void clicks_on_reset_password_button() throws InterruptedException {
+fPass.clickfResetPass();
+Thread.sleep(5000);
+    }
+
+    @Then("verify that password has been changed successfully and user is redirected to Login page")
+    public void verify_that_password_has_been_changed_successfully_and_user_is_redirected_to_login_page() throws InterruptedException {
+kycPage_Objects kyc = new kycPage_Objects(driver);
+Assert.assertEquals("Login to Chiragh Property Portal", kyc.getPageTitle());
+Thread.sleep(2000);
+driver.quit();
+    }
 }

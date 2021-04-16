@@ -1,14 +1,13 @@
 package stepDefinitions;
 
-import PageObjects.UserprofileObj;
-import io.cucumber.java.en.*;
-import org.junit.Assert;
-import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeDriver;
 import PageObjects.LoginObj;
-import org.openqa.selenium.support.pagefactory.ElementLocator;
-import org.openqa.selenium.support.ui.Wait;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import PageObjects.UserprofileObj;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+import org.junit.Assert;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import utilities.WaitHelper;
 
 public class step_UserProfile {
@@ -19,7 +18,8 @@ public class step_UserProfile {
 
     @Given("The user is on the user dashboard")
     public void the_user_is_on_the_user_dashboard() throws InterruptedException {
-        System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
+       // System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "//Drivers/chromedriver");
         driver = new ChromeDriver();
         lp = new LoginObj(driver);
         WP = new WaitHelper(driver);
@@ -31,7 +31,7 @@ public class step_UserProfile {
         driver.manage().window().maximize();
         lp.Username("atif.kamal33@getnada.com");
         Thread.sleep(2000);
-        lp.setPass("Atif123 @@");
+        lp.setPass("Atif123@@");
         lp.clickLoginBtn().click();
         Thread.sleep(5000);
         String title = driver.getTitle();
