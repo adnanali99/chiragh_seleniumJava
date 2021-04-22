@@ -1,10 +1,7 @@
 package utilities;
 
-import io.cucumber.java.*;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import pageObjects.loginPage_Objects;
-import stepDefinitions.steps_loginPage;
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
 
 public class hooks {
   //public WebDriver driver;
@@ -13,7 +10,7 @@ public class hooks {
     public void beforeScenario(){
 //        System.out.println("This will run before the Scenario");
 //        sp.driver = new ChromeDriver();
-//       // sp = new steps_loginPage();
+//        sp = new steps_loginPage();
 //       sp.driver.manage().window().maximize();
     }
 
