@@ -9,30 +9,16 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-<<<<<<< HEAD
         <java.version>15.0.2</java.version>
-=======
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
->>>>>>> fc08c1919ff48c36d940f70e9e2b5e33e1fb711c
     </properties>
-   <plugin>
-    <groupId>org.apache.maven.plugins</groupId>
-    <artifactId>maven-compiler-plugin</artifactId>
-    <configuration>
-        <source>1.8</source>
-        <target>1.8</target>
-    </configuration>
-</plugin>
-<!--    <properties>-->
-<!--        <maven.compiler.source>15</maven.compiler.source>-->
-<!--        <maven.compiler.target>15</maven.compiler.target>-->
-<!--    </properties>-->
-<!--    <properties>-->
-<!--        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>-->
-<!--        <java.version>15.0.2</java.version>-->
-<!--    </properties>-->
-<<<<<<< HEAD
+    <!--    <properties>-->
+    <!--        <maven.compiler.source>15</maven.compiler.source>-->
+    <!--        <maven.compiler.target>15</maven.compiler.target>-->
+    <!--    </properties>-->
+    <!--    <properties>-->
+    <!--        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>-->
+    <!--        <java.version>15.0.2</java.version>-->
+    <!--    </properties>-->
 
     <build>
         <plugins>
@@ -46,24 +32,6 @@
             </plugin>
         </plugins>
     </build>
-=======
-<!--    <build>-->
-  <!--        <plugins>-->
- <!--            <plugin>-->
-
- <!--        <groupId>org.apache.maven.plugins</groupId>-->
-  <!--            <artifactId>maven-compiler-plugin</artifactId>-->
- <!--                     <version>3.10</version>-->
- <!--          <configuration>-->
- <!--            <source>11</source>-->
- <!--                <target>11</target>-->
- <!--  <encoding>UTF-8</encoding>-->
- <!--    </configuration>-->
-
- <!--   </plugin>-->
- <!-- </plugins> --> 
- <!--      </build>-->
->>>>>>> fc08c1919ff48c36d940f70e9e2b5e33e1fb711c
     <dependencies>
         <dependency>
             <groupId>io.cucumber</groupId>
@@ -75,12 +43,12 @@
             <artifactId>cucumber-html</artifactId>
             <version>0.2.7</version>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>net.sourceforge.cobertura</groupId>-->
-<!--            <artifactId>cobertura</artifactId>-->
-<!--            <version>2.1.1</version>-->
-<!--            <scope>test</scope>-->
-<!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>net.sourceforge.cobertura</groupId>-->
+        <!--            <artifactId>cobertura</artifactId>-->
+        <!--            <version>2.1.1</version>-->
+        <!--            <scope>test</scope>-->
+        <!--        </dependency>-->
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-java</artifactId>
@@ -251,18 +219,18 @@
 
     </dependencies>
 
-<!--<build>-->
-<!--    <plugins>-->
-<!--        <plugin>-->
-<!--                <groupId>org.apache.maven.plugins</groupId>-->
-<!--                <artifactId>maven-surefire-plugin</artifactId>-->
-<!--                <version>3.0.0-M5</version>-->
-<!--            <configuration>-->
-<!--                <includes>-->
-<!--                    <include>testRunner.java</include>-->
-<!--                </includes>-->
-<!--            </configuration>-->
-<!--        </plugin>-->
-<!--    </plugins>-->
-<!--</build>-->
+    <!--<build>-->
+    <!--    <plugins>-->
+    <!--        <plugin>-->
+    <!--                <groupId>org.apache.maven.plugins</groupId>-->
+    <!--                <artifactId>maven-surefire-plugin</artifactId>-->
+    <!--                <version>3.0.0-M5</version>-->
+    <!--            <configuration>-->
+    <!--                <includes>-->
+    <!--                    <include>testRunner.java</include>-->
+    <!--                </includes>-->
+    <!--            </configuration>-->
+    <!--        </plugin>-->
+    <!--    </plugins>-->
+    <!--</build>-->
 </project>
