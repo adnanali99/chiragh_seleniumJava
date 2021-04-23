@@ -1,6 +1,6 @@
 Feature: Login Page regression testcases
 
-  @LoginValidation1
+  @LoginValidation
   Scenario Outline: Test login functionality with no data
     Given User is on the login page
     When clicks on the "<required>" button
@@ -8,7 +8,7 @@ Feature: Login Page regression testcases
       | required                         |
       | Not a Chiragh user yet? Register |
 
-  @LoginValidation2
+  @LoginValidation
   Scenario Outline: Verify that user is getting logged in with valid credentials. Getting error message with invalid
   credentials (valid email, invalid password) and (invalid email, valid password) and both (invalid email and password)
     Given User is on the login page
@@ -28,7 +28,7 @@ Feature: Login Page regression testcases
       | A1122a@@@              |           | Login    | Enter valid email address e.g example@email.com |
       | 12931923               |           | Login    | Enter valid email address e.g example@email.com |
 
-  @LoginValidation1
+  @LoginValidation
   Scenario Outline: Verify that all the elements and label texts of Login Page are available
     Given User is on the login page
     Then  User can see all the login page elements e.g "<loignTitle>" , "<Email>" and "<Password>" fields and their labels. The lables of "<Login button>" , "<Disclaimer>" , "<Register>" and "<Forgot Password>"

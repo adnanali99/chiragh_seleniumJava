@@ -68,9 +68,9 @@ Feature: As a user i should be able to register into the application
 #    Then  user Get validation of back  button
 
 
-  @Functional_Testing
+  @LoginValidation
 
-  Scenario Outline: Submitt Registration Form Functional Check with correct Input
+  Scenario Outline: Submit Registration Form Functional Check with correct Input
 
     Given I am on the RegistrationSecondPage.
     When   Then  User can Fill all the Registration Second page elements e.g "<Nationalityopt>" , "<CompleteAddress>","<Pobox>","<CountryOpt>","<Cityopt>","<CountryCode>","<MobileNO>" and "<PhoneNO>" fields

@@ -1,0 +1,16 @@
+PageObjects/forgotPassword.class
+stepDefinitions/steps_loginPage.class
+stepDefinitions/step_UserProfile.class
+testRunner/testRunner.class
+utilities/GmailQuickstart.class
+stepDefinitions/BaseClass.class
+utilities/gmailConnection.class
+PageObjects/loginPage_Objects.class
+PageObjects/LoginObj.class
+PageObjects/RegistrationObj.class
+PageObjects/kycPage_Objects.class
+utilities/hooks.class
+PageObjects/UserprofileObj.class
+stepDefinitions/step_RegistrationPage.class
+utilities/WaitHelper.class
+utilities/GmailQuickStart1.class

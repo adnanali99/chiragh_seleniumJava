@@ -1,5 +1,5 @@
 Feature: As a user i should be able to validate Profile,Change password & Inbox
-@Userprofile1
+  @LoginValidation
 
   Scenario: check validation on of two tabs
 
