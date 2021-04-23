@@ -5,13 +5,13 @@ import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class LoginObj {
+public class LoginObjTest {
 
     //*********   WEBDRIVER INITIALIZATION  ************//
 
     WebDriver driver;
 
-    public LoginObj(WebDriver driver) {
+    public LoginObjTest(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }

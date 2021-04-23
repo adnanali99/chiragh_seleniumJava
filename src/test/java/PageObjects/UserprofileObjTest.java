@@ -8,13 +8,13 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
-public class UserprofileObj {
+public class UserprofileObjTest {
 
     //*********   WEBDRIVER INITIALIZATION  ************//
 
     WebDriver driver;
 
-    public UserprofileObj(WebDriver driver) {
+    public UserprofileObjTest(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
 

@@ -1,19 +1,19 @@
 package stepDefinitions;
 
-import PageObjects.forgotPassword;
-import PageObjects.kycPage_Objects;
-import PageObjects.loginPage_Objects;
+import PageObjects.forgotPasswordTest;
+import PageObjects.kycPage_ObjectsTest;
+import PageObjects.loginPage_ObjectsTest;
 import org.apache.commons.lang.RandomStringUtils;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 
 import java.util.Properties;
 
-public class BaseClass {
+public class BaseClassTest {
     public WebDriver driver;
-    public loginPage_Objects lp;
-    public kycPage_Objects kycObj;
-    public forgotPassword fPass;
+    public loginPage_ObjectsTest lp;
+    public kycPage_ObjectsTest kycObj;
+    public forgotPasswordTest fPass;
     public static Logger logger;
     public Properties configProp;
 

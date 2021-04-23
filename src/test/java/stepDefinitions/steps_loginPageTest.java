@@ -1,8 +1,8 @@
 package stepDefinitions;
 
-import PageObjects.forgotPassword;
-import PageObjects.kycPage_Objects;
-import PageObjects.loginPage_Objects;
+import PageObjects.forgotPasswordTest;
+import PageObjects.kycPage_ObjectsTest;
+import PageObjects.loginPage_ObjectsTest;
 import com.github.javafaker.Faker;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
@@ -20,7 +20,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Properties;
 
-public class steps_loginPage extends BaseClass {
+public class steps_loginPage extends BaseClassTest {
     Faker faker = new Faker();
 
     String incorporationPlace = faker.address().city();
@@ -60,7 +60,7 @@ public class steps_loginPage extends BaseClass {
     @Given("User is on the login page")
     public void user_is_on_the_login_page() throws InterruptedException {
         // Write code here that turns the phrase above into concrete actions
-        lp = new loginPage_Objects(driver);
+        lp = new loginPage_ObjectsTest(driver);
 
         logger.info("********************* Opening URL *********************");
         driver.get("https://test.chiragh.com/login");
@@ -168,7 +168,7 @@ public class steps_loginPage extends BaseClass {
     @When("User clicks on profile icon and then username")
     public void user_clicks_on_profile_icon_and_then_username() throws InterruptedException {
 
-        kycObj = new kycPage_Objects(driver);
+        kycObj = new kycPage_ObjectsTest(driver);
 
         Thread.sleep(3000);
         kycObj.clickProfileImage();
@@ -314,7 +314,7 @@ kycObj.clickSubmitBtn();
 
     @When("clicks on the Forgot Password link")
     public void clicks_on_the_link() throws InterruptedException {
-        fPass = new forgotPassword(driver);
+        fPass = new forgotPasswordTest(driver);
 
         fPass.clickfPassLink();
         Thread.sleep(3000);
@@ -400,7 +400,7 @@ Thread.sleep(5000);
 
     @Then("verify that password has been changed successfully and user is redirected to Login page")
     public void verify_that_password_has_been_changed_successfully_and_user_is_redirected_to_login_page() throws InterruptedException {
-kycPage_Objects kyc = new kycPage_Objects(driver);
+kycPage_ObjectsTest kyc = new kycPage_ObjectsTest(driver);
 Assert.assertEquals("Login to Chiragh Property Portal", kyc.getPageTitle());
 Thread.sleep(2000);
 driver.quit();

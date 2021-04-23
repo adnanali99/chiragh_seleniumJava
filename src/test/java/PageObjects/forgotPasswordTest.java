@@ -5,17 +5,16 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import stepDefinitions.BaseClass;
-import utilities.WaitHelper;
+import utilities.WaitHelperTest;
 
-public class forgotPassword {
+public class forgotPasswordTest {
     public WebDriver ldriver;
-    WaitHelper waithelper;
+    WaitHelperTest waithelper;
 
-    public forgotPassword(WebDriver rdriver) {
+    public forgotPasswordTest(WebDriver rdriver) {
         ldriver = rdriver;
         PageFactory.initElements(rdriver, this);
-        waithelper = new WaitHelper(ldriver);
+        waithelper = new WaitHelperTest(ldriver);
     }
     //Click on forgot password link on login page
     @FindBy(xpath = "//div[@class='col-sm-4 forgot']")

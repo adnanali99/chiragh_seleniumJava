@@ -10,7 +10,7 @@ import org.openqa.selenium.support.PageFactory;
 import java.util.List;
 
 
-public class RegistrationObj {
+public class RegistrationObjTest {
 
     //********* Heading Element of Page ************//
 
@@ -297,7 +297,7 @@ public class RegistrationObj {
 
     WebDriver driver;
 
-    public RegistrationObj(WebDriver driver) {
+    public RegistrationObjTest(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }

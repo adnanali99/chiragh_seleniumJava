@@ -1,6 +1,6 @@
 package stepDefinitions;
 
-import PageObjects.RegistrationObj;
+import PageObjects.RegistrationObjTest;
 import com.github.javafaker.Faker;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -9,12 +9,12 @@ import org.junit.Assert;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import utilities.WaitHelper;
+import utilities.WaitHelperTest;
 
-public class step_RegistrationPage {
+public class step_RegistrationPageTest {
     WebDriver driver;
-    RegistrationObj RP;
-    WaitHelper WP;
+    RegistrationObjTest RP;
+    WaitHelperTest WP;
     Faker faker = new Faker();
 
     String fname = faker.name().firstName();
@@ -225,8 +225,8 @@ public class step_RegistrationPage {
        // System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
         driver = new ChromeDriver();
 
-        RP = new RegistrationObj(driver);
-        WP = new WaitHelper(driver);
+        RP = new RegistrationObjTest(driver);
+        WP = new WaitHelperTest(driver);
         driver.get("https://test.chiragh.com/register");
         //Mazimize current window
         driver.manage().window().maximize();

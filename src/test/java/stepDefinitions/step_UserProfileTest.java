@@ -1,29 +1,29 @@
 package stepDefinitions;
 
-import PageObjects.LoginObj;
-import PageObjects.UserprofileObj;
+import PageObjects.LoginObjTest;
+import PageObjects.UserprofileObjTest;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import utilities.WaitHelper;
+import utilities.WaitHelperTest;
 
-public class step_UserProfile {
+public class step_UserProfileTest {
     WebDriver driver;
-    WaitHelper WP;
-    LoginObj lp;
-    UserprofileObj UP;
+    WaitHelperTest WP;
+    LoginObjTest lp;
+    UserprofileObjTest UP;
 
     @Given("The user is on the user dashboard")
     public void the_user_is_on_the_user_dashboard() throws InterruptedException {
        // System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
         System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "//Drivers/chromedriver");
         driver = new ChromeDriver();
-        lp = new LoginObj(driver);
-        WP = new WaitHelper(driver);
-        UP = new UserprofileObj(driver);
+        lp = new LoginObjTest(driver);
+        WP = new WaitHelperTest(driver);
+        UP = new UserprofileObjTest(driver);
 
         driver.get("https://test.chiragh.com/login");
 
