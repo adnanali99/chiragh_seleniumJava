@@ -16,6 +16,9 @@ public class WaitHelper {
         WebDriverWait wait = new WebDriverWait(driver, timeOutInSeconds);
         wait.until(ExpectedConditions.visibilityOf(element));
 
+//        WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(3));
+//        wait.until((.InvisibilityOfElementLocated(By.Id(newNoteInputArea))));
+
     }
 
 }
