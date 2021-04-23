@@ -20,7 +20,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Properties;
 
-public class steps_loginPage extends BaseClassTest {
+public class steps_loginPageTest extends BaseClassTest {
     Faker faker = new Faker();
 
     String incorporationPlace = faker.address().city();
