@@ -13,7 +13,7 @@ import org.junit.runner.RunWith;
 //        plugin = {"pretty", "html:test-report.html"},
 //        tags = "@EmailValidations"
 //)
-@CucumberOptions(features = ".//Features",
+@CucumberOptions(features = "src/test/resources",
         glue="stepDefinitions",
         dryRun = false,
         monochrome = true,
