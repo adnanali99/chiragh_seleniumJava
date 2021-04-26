@@ -13,12 +13,10 @@ import org.apache.log4j.PropertyConfigurator;
 import org.junit.Assert;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-import java.io.FileInputStream;
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Properties;
 
 public class steps_loginPage extends BaseClass {
     Faker faker = new Faker();
@@ -29,33 +27,56 @@ public class steps_loginPage extends BaseClass {
     String companyName = faker.company().name();
 
     @Before
-    public void setup() throws IOException {
-        //Reading properties class
-        configProp=new Properties();
-        FileInputStream configPropFile = new FileInputStream("config.properties");
-        configProp.load(configPropFile); //Loading file into file input stream
+    public void setWebDriver() throws Exception {
 
-
-        String bName = configProp.getProperty("browser");
-
-        logger= Logger.getLogger("ChiraghCucumber"); //Added Logger
-        PropertyConfigurator.configure("log4j.properties");
-
-        if(bName.equals("chrome")){
-            System.setProperty("webdriver.chrome.driver", configProp.getProperty("chromepath"));
-            driver = new ChromeDriver();
+//        String browser = System.getProperty("browser");
+        String browser = System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "//Drivers/chromedriver");
+        logger= Logger.getLogger("ChiraghCucumber");
+     PropertyConfigurator.configure("log4j.properties");
+        if (browser == null) {
+            browser = "chrome";
         }
-        else if(bName.equals("firefox")){
-            System.setProperty("webdriver.gecko.driver", configProp.getProperty("firefoxPath"));
-            driver = new FirefoxDriver();
-        }else if(bName.equals("ie")){
-            System.setProperty("webdriver.gecko.driver", configProp.getProperty("iePath"));
-            driver = new FirefoxDriver();
+        switch (browser) {
+            case "chrome":
+                ChromeOptions chromeOptions = new ChromeOptions();
+                chromeOptions.addArguments("['start-maximized']");
+                driver = new ChromeDriver(chromeOptions);
+                break;
+            case "firefox":
+                driver = new FirefoxDriver();
+                driver.manage().window().maximize();
+                break;
+            default:
+                throw new IllegalArgumentException("Browser \"" + browser + "\" isn't supported.");
         }
-
-
-        logger.info("********************* Launching Browser *********************");
     }
+//    public void setup() throws IOException {
+//        //Reading properties class
+//        configProp=new Properties();
+//        FileInputStream configPropFile = new FileInputStream("config.properties");
+//        configProp.load(configPropFile); //Loading file into file input stream
+//
+//
+//        String bName = configProp.getProperty("browser");
+//
+//        logger= Logger.getLogger("ChiraghCucumber"); //Added Logger
+//        PropertyConfigurator.configure("log4j.properties");
+//
+//        if(bName.equals("chrome")){
+//            System.setProperty("webdriver.chrome.driver", configProp.getProperty("chromepath"));
+//            driver = new ChromeDriver();
+//        }
+//        else if(bName.equals("firefox")){
+//            System.setProperty("webdriver.gecko.driver", configProp.getProperty("firefoxPath"));
+//            driver = new FirefoxDriver();
+//        }else if(bName.equals("ie")){
+//            System.setProperty("webdriver.gecko.driver", configProp.getProperty("iePath"));
+//            driver = new FirefoxDriver();
+//        }
+//
+//
+//        logger.info("********************* Launching Browser *********************");
+//    }
 
     @Given("User is on the login page")
     public void user_is_on_the_login_page() throws InterruptedException {

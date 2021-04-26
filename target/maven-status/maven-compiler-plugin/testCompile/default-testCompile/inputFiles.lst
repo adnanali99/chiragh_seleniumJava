@@ -5,11 +5,11 @@
 /Users/adnan/Desktop/Projects/selenium/src/test/java/PageObjects/UserprofileObj.java
 /Users/adnan/Desktop/Projects/selenium/src/test/java/stepDefinitions/step_UserProfile.java
 /Users/adnan/Desktop/Projects/selenium/src/test/java/utilities/gmailConnection.java
-/Users/adnan/Desktop/Projects/selenium/src/test/java/testRunner/testRunner.java
 /Users/adnan/Desktop/Projects/selenium/src/test/java/stepDefinitions/step_RegistrationPage.java
 /Users/adnan/Desktop/Projects/selenium/src/test/java/utilities/GmailQuickStart1.java
 /Users/adnan/Desktop/Projects/selenium/src/test/java/utilities/datePicker.java
 /Users/adnan/Desktop/Projects/selenium/src/test/java/utilities/hooks.java
+/Users/adnan/Desktop/Projects/selenium/src/test/java/testRunner/testRunnerTest.java
 /Users/adnan/Desktop/Projects/selenium/src/test/java/utilities/GmailQuickstart.java
 /Users/adnan/Desktop/Projects/selenium/src/test/java/PageObjects/RegistrationObj.java
 /Users/adnan/Desktop/Projects/selenium/src/test/java/utilities/WaitHelper.java

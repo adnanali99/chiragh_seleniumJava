@@ -20,6 +20,6 @@ import org.junit.runner.RunWith;
         plugin = {"pretty", "html:test-report.html"},
         tags = "@LoginValidation1"
 )
-public class testRunner {
+public class testRunnerTest {
 
 }

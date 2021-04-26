@@ -1,7 +1,7 @@
 PageObjects/forgotPassword.class
 stepDefinitions/steps_loginPage.class
+testRunner/testRunnerTest.class
 stepDefinitions/step_UserProfile.class
-testRunner/testRunner.class
 utilities/GmailQuickstart.class
 stepDefinitions/BaseClass.class
 utilities/gmailConnection.class
