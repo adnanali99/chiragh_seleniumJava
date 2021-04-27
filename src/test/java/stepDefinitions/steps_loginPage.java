@@ -31,7 +31,7 @@ public class steps_loginPage extends BaseClass {
 
 //        String browser = System.getProperty("browser");
 
-       // String browser = System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "//Drivers/chromedriver");
+       //String browser = System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "//Drivers/chromedriver");
         String browser = System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/usr/bin/google-chrome");
         logger= Logger.getLogger("ChiraghCucumber");
      PropertyConfigurator.configure("log4j.properties");
@@ -42,6 +42,7 @@ public class steps_loginPage extends BaseClass {
             case "chrome":
                 ChromeOptions chromeOptions = new ChromeOptions();
                 chromeOptions.addArguments("['start-maximized']");
+                chromeOptions.addArguments("headless");
                 driver = new ChromeDriver(chromeOptions);
                 break;
             case "firefox":
