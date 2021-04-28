@@ -1,4 +1,11 @@
 -------------------------------------------------------------------------------
 Test set: testRunner.testRunnerTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 83.896 sec
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 55.37 sec <<< FAILURE!
+Submit KYC form with valid data #2(KYC Form functional Tests)  Time elapsed: 54.54 sec  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<[Chiragh - Dashboard Home]> but was:<[Property Auction In Dubai - Chiragh.com]>
+	at org.junit.Assert.assertEquals(Assert.java:117)
+	at org.junit.Assert.assertEquals(Assert.java:146)
+	at stepDefinitions.steps_loginPage.user_lands_on_profile_dashboard_page(steps_loginPage.java:220)
+	at ?.User lands on Profile Dashboard page(file:///Users/adnan/Desktop/Projects/selenium/src/test/resources/kycPage.feature:50)
+

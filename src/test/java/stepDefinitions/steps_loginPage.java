@@ -31,8 +31,8 @@ public class steps_loginPage extends BaseClass {
 
 //        String browser = System.getProperty("browser");
 
-       //String browser = System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "//Drivers/chromedriver");
-        String browser = System.setProperty("webdriver.chrome.driver", "/usr/bin/google-chrome-stable");
+       String browser = System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "//Drivers/chromedriver");
+        //String browser = System.setProperty("webdriver.chrome.driver", "/usr/bin/google-chrome-stable");
         logger= Logger.getLogger("ChiraghCucumber");
      PropertyConfigurator.configure("log4j.properties");
         if (browser == null) {
@@ -43,6 +43,11 @@ public class steps_loginPage extends BaseClass {
                 ChromeOptions chromeOptions = new ChromeOptions();
                 chromeOptions.addArguments("['start-maximized']");
                 chromeOptions.addArguments("--headless");
+                chromeOptions.addArguments("--no-sandbox");
+                chromeOptions.addArguments("--disable-infobars");
+                chromeOptions.addArguments("--disable-gpu");
+                chromeOptions.addArguments("--ignore-certificate-errors");
+                chromeOptions.addArguments("--ignore-certificate-errors");
                 driver = new ChromeDriver(chromeOptions);
                 break;
             case "firefox":

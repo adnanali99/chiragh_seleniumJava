@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="1" failures="0" name="testRunner.testRunnerTest" time="83.174" errors="0" skipped="0">
+<testsuite tests="1" failures="1" name="testRunner.testRunnerTest" time="54.54" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="java.vm.version" value="15.0.2+7-27"/>
@@ -57,5 +57,44 @@
     <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
   </properties>
-  <testcase classname="KYC Form functional Tests" name="Submit KYC form with valid data #2" time="83.174"/>
+  <testcase classname="KYC Form functional Tests" name="Submit KYC form with valid data #2" time="54.54">
+    <failure message="expected:&lt;[Chiragh - Dashboard Home]&gt; but was:&lt;[Property Auction In Dubai - Chiragh.com]&gt;" type="org.junit.ComparisonFailure">org.junit.ComparisonFailure: expected:&lt;[Chiragh - Dashboard Home]&gt; but was:&lt;[Property Auction In Dubai - Chiragh.com]&gt;
+	at org.junit.Assert.assertEquals(Assert.java:117)
+	at org.junit.Assert.assertEquals(Assert.java:146)
+	at stepDefinitions.steps_loginPage.user_lands_on_profile_dashboard_page(steps_loginPage.java:220)
+	at ✽.User lands on Profile Dashboard page(file:///Users/adnan/Desktop/Projects/selenium/src/test/resources/kycPage.feature:50)
+</failure>
+    <system-out>
+@LoginValidation1
+Scenario Outline: Submit KYC form with valid data                                 # src/test/resources/kycPage.feature:61
+ INFO [main] (steps_loginPage.java:89) - ********************* Opening URL *********************
+  Given User is on the login page                                                 # stepDefinitions.steps_loginPage.user_is_on_the_login_page()
+ INFO [main] (steps_loginPage.java:126) - ********************* Providing username and password *********************
+  When User is providing an email &quot;alia.dnan38@gmail.com&quot; and password &quot;A1122a@@&quot; # stepDefinitions.steps_loginPage.user_is_providing_a_valid_email_and_password(java.lang.String,java.lang.String)
+  And clicks on the &quot;Login&quot; button                                                # stepDefinitions.steps_loginPage.clicks_on_the_required_button(java.lang.String)
+  And User clicks on profile icon and then username                               # stepDefinitions.steps_loginPage.user_clicks_on_profile_icon_and_then_username()
+  And User lands on Profile Dashboard page                                        # stepDefinitions.steps_loginPage.user_lands_on_profile_dashboard_page()
+      org.junit.ComparisonFailure: expected:&lt;[Chiragh - Dashboard Home]&gt; but was:&lt;[Property Auction In Dubai - Chiragh.com]&gt;
+	at org.junit.Assert.assertEquals(Assert.java:117)
+	at org.junit.Assert.assertEquals(Assert.java:146)
+	at stepDefinitions.steps_loginPage.user_lands_on_profile_dashboard_page(steps_loginPage.java:220)
+	at ���.User lands on Profile Dashboard page(file:///Users/adnan/Desktop/Projects/selenium/src/test/resources/kycPage.feature:50)
+
+  And clicks on profile link                                                      # stepDefinitions.steps_loginPage.clicks_on_profile_link()
+  And clicks on KYC application link                                              # stepDefinitions.steps_loginPage.clicks_on_kyc_application_link()
+  Then User lands on the KYC application form                                     # stepDefinitions.steps_loginPage.user_lands_on_the_kyc_application_form()
+  And provide KYC form details                                                    # stepDefinitions.steps_loginPage.provide_kyc_form_details()
+  And click on Submit button                                                      # stepDefinitions.steps_loginPage.click_on_submit_button()
+  Then User can see &quot;&quot; as a success message                                       # stepDefinitions.steps_loginPage.user_can_see_as_a_success_message(java.lang.String)
+  And Close the browser                                                           # stepDefinitions.steps_loginPage.close_the_browser()
+</system-out>
+    <system-err>Starting ChromeDriver 89.0.4389.23 (61b08ee2c50024bab004e48d2b1b083cdbdac579-refs/branch-heads/4389@{#294}) on port 36648
+Only local connections are allowed.
+Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+ChromeDriver was started successfully.
+[1619591642.895][WARNING]: This version of ChromeDriver has not been tested with Chrome version 90.
+Apr 28, 2021 11:34:03 AM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: W3C
+</system-err>
+  </testcase>
 </testsuite>
