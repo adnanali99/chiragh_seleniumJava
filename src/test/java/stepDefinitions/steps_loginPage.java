@@ -43,7 +43,7 @@ public class steps_loginPage extends BaseClass {
                 ChromeOptions chromeOptions = new ChromeOptions();
                 chromeOptions.addArguments("['start-maximized']");
                 chromeOptions.addArguments("--headless");
-                chromeOptions.addArguments("--no-sandbox");
+              //  chromeOptions.addArguments("--no-sandbox");
                 chromeOptions.addArguments("--disable-infobars");
                 chromeOptions.addArguments("--disable-gpu");
                 chromeOptions.addArguments("--ignore-certificate-errors");
