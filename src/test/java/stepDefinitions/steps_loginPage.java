@@ -32,9 +32,10 @@ public class steps_loginPage extends BaseClass {
 
 //        String browser = System.getProperty("browser");
 
-       //String browser = System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "//Drivers/chromedriver");
+
         System.setProperty(ChromeDriverService.CHROME_DRIVER_SILENT_OUTPUT_PROPERTY,"true");
-        String browser = System.setProperty("webdriver.chrome.driver", "/usr/bin/google-chrome-stable");
+        String browser = System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "//Drivers/chromedriver");
+        // String browser = System.setProperty("webdriver.chrome.driver", "/usr/bin/google-chrome-stable");
         logger= Logger.getLogger("ChiraghCucumber");
      PropertyConfigurator.configure("log4j.properties");
         if (browser == null) {
