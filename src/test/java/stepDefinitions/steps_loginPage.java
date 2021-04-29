@@ -12,8 +12,8 @@ import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 import org.junit.Assert;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
@@ -26,6 +26,7 @@ public class steps_loginPage extends BaseClass {
     String companyAddress = faker.address().fullAddress();
     String bOwnerName = faker.name().fullName().replaceAll("[^A-Za-z]", "");
     String companyName = faker.company().name();
+    WebDriver driver;
 
     @Before
     public void setWebDriver() throws Exception {
@@ -33,9 +34,9 @@ public class steps_loginPage extends BaseClass {
 //        String browser = System.getProperty("browser");
 
 
-        System.setProperty(ChromeDriverService.CHROME_DRIVER_SILENT_OUTPUT_PROPERTY,"true");
-        String browser = System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "//Drivers/chromedriver");
-        // String browser = System.setProperty("webdriver.chrome.driver", "/usr/bin/google-chrome-stable");
+       // System.setProperty(ChromeDriverService.CHROME_DRIVER_SILENT_OUTPUT_PROPERTY,"true");
+        //String browser = System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "//Drivers/chromedriver");
+         String browser = System.setProperty("webdriver.chrome.driver", "/usr/bin/google-chrome-stable");
         logger= Logger.getLogger("ChiraghCucumber");
      PropertyConfigurator.configure("log4j.properties");
         if (browser == null) {
@@ -45,13 +46,14 @@ public class steps_loginPage extends BaseClass {
             case "chrome":
                 ChromeOptions chromeOptions = new ChromeOptions();
                 chromeOptions.addArguments("['start-maximized']");
-                chromeOptions.addArguments("--headless");
+                //chromeOptions.addArguments("--headless");
               //  chromeOptions.addArguments("--no-sandbox");
+                chromeOptions.setHeadless(true);
                 chromeOptions.addArguments("--disable-infobars");
                 chromeOptions.addArguments("--disable-gpu");
                 chromeOptions.addArguments("--ignore-certificate-errors");
                 chromeOptions.addArguments("--ignore-certificate-errors");
-                driver = new ChromeDriver(chromeOptions);
+               driver = new ChromeDriver(chromeOptions);
                 break;
             case "firefox":
                 driver = new FirefoxDriver();
